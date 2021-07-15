@@ -1,1 +1,33 @@
-<p>customer works!</p>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Cliente</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <button type="button" class="btn btn-sm  btn-outline-secondary">Nuevo</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">DNI/RUC</th>
+    <th scope="col">Nombres</th>
+    <th scope="col">Apellido Paterno</th>
+    <th scope="col">Correo</th>
+    <th scope="col">Telefono</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of customers">
+    <th scope="row">{{item.customerId}}</th>
+    <td>{{item.numerDocument}}</td>
+    <td>{{item.firstName}}</td>
+    <td>{{item.lastName}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.phone}}</td>
+  </tr>
+  </tbody>
+</table>

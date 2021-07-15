@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  useHash: ''
+  api: {
+    baseUrl: "http://localhost:8080"
+  }
 };
 
 /*
