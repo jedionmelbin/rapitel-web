@@ -6,10 +6,21 @@ import {catchError, map} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService extends ServiceBaseService {
+export class ProductsService extends ServiceBaseService {
+
 
   listAll(): Observable<any> {
-    return this.getAll(`/customers/list`)
+    return this.getAll(`/products/list`)
+      .pipe(map(response => {
+          return response;
+        }),
+        catchError(error => {
+          return throwError(error);
+        }));
+  }
+
+  getById(id: any): Observable<any> {
+    return this.getAll(`/products/${id}`)
       .pipe(map(response => {
           return response;
         }),
@@ -19,7 +30,7 @@ export class CustomerService extends ServiceBaseService {
   }
 
   create(form: any): Observable<any> {
-    return this.post(`/customers/create`, form)
+    return this.post(`/products/create`, form)
       .pipe(map(response => {
           return response;
         }),

@@ -6,20 +6,10 @@ import {catchError, map} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService extends ServiceBaseService {
+export class UsersService extends ServiceBaseService {
 
   listAll(): Observable<any> {
-    return this.getAll(`/customers/list`)
-      .pipe(map(response => {
-          return response;
-        }),
-        catchError(error => {
-          return throwError(error);
-        }));
-  }
-
-  create(form: any): Observable<any> {
-    return this.post(`/customers/create`, form)
+    return this.getAll(`/users/list`)
       .pipe(map(response => {
           return response;
         }),

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OrdersService} from "../services/orders.service";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  orders: any;
+  ordersForm:FormGroup;
 
-  ngOnInit(): void {
+  constructor(private orderService: OrdersService) {
   }
 
+  ngOnInit(): void {
+    this.listAll();
+  }
+
+  listAll() {
+    this.orderService.listAll().subscribe((response) => {
+      this.orders = response;
+    });
+  }
 }

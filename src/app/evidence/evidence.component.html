@@ -1,10 +1,9 @@
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Pedidos</h1>
+  <h1 class="h2">Entregas</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm  btn-outline-secondary" routerLink="/create-orders">Nuevo</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+
     </div>
   </div>
 </div>
@@ -23,7 +22,6 @@
     <th scope="col">I.G.V</th>
     <th scope="col">Total</th>
     <th scope="col"></th>
-    <th scope="col"></th>
   </tr>
   </thead>
   <tbody>
@@ -38,8 +36,7 @@
     <td>{{item.subTotal}}</td>
     <td>{{item.igv}}</td>
     <td>{{item.total}}</td>
-    <td><a href="#"><i class="bi bi-pencil"></i></a></td>
-    <td><a href="#"><i class="bi bi-trash"></i></a></td>
+    <td><a routerLink="/pictures/{{item.orderId}}"><i class="bi bi-camera"></i></a></td>
   </tr>
   </tbody>
 </table>
